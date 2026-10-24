@@ -10,8 +10,9 @@
 <div class="top">
  <div class="logo">🛡️ SafeCircle</div>
  <div class="tools">
-  <select id="lang" aria-label="Language"><option value="en">EN</option><option value="hi">हिंदी</option><option value="te">తెలుగు</option></select>
-  <button id="theme" aria-label="Toggle theme">🌙</button>
+  <label class="sr" for="lang">Language</label>
+  <select id="lang"><option value="en">EN</option><option value="hi">हिंदी</option><option value="te">తెలుగు</option></select>
+  <button id="theme" aria-label="Toggle dark mode">🌙</button>
  </div>
 </div>
 
@@ -22,35 +23,56 @@
 </section>
 
 <main>
- <section class="card sos-wrap">
-  <button id="sos" aria-label="SOS">SOS</button>
-  <div id="msg" data-i="hint">Tap SOS to alert your trusted contacts.</div>
+ <section class="card sos-wrap" aria-labelledby="sosTitle">
+  <h2 id="sosTitle" class="sr">Emergency SOS</h2>
+  <button id="sos" aria-label="SOS: send an alert to your trusted contacts">SOS</button>
+  <div id="msg" role="status" aria-live="polite" data-i="hint">Tap SOS to alert your trusted contacts.</div>
   <div class="status" id="status"></div>
   <div class="alerts" id="alerts"></div>
  </section>
 
- <section class="actions">
-  <button id="share"><span>📍</span><b data-i="share">Share location</b></button>
-  <button id="fake"><span>📞</span><b data-i="fake">Fake call</b></button>
-  <a href="tel:112"><span>🚨</span><b data-i="call">Call 112</b></a>
+ <section class="actions" aria-label="Quick actions">
+  <button id="share"><span aria-hidden="true">📍</span><b data-i="share">Share location</b></button>
+  <button id="fake"><span aria-hidden="true">📞</span><b data-i="fake">Fake call</b></button>
+  <a href="tel:112"><span aria-hidden="true">🚨</span><b data-i="call">Call 112</b></a>
  </section>
 
- <section class="card">
-  <h2 data-i="trusted">Trusted contacts</h2>
-  <div class="circle" id="circle"></div>
+ <section class="card" aria-labelledby="ciTitle">
+  <h2 id="ciTitle" data-i="checkin">Safe-route check-in</h2>
+  <p class="help">Set the time you expect to arrive. If you don’t tap “I’m safe” in time, an alert is sent automatically.</p>
+  <div class="row">
+   <div class="field"><label for="eta">Minutes to arrive</label><input id="eta" type="number" min="1" max="240" value="20" inputmode="numeric"></div>
+   <div class="field"><label for="dest">Destination (optional)</label><input id="dest" maxlength="40" placeholder="e.g. Home"></div>
+  </div>
+  <div class="row">
+   <button class="btn" id="startCheckin">Start check-in</button>
+   <button class="btn safe" id="imSafe" hidden>I’m safe</button>
+  </div>
+  <div class="ci-status" id="ciStatus" role="status" aria-live="polite"></div>
+ </section>
+
+ <section class="card" aria-labelledby="ctTitle">
+  <h2 id="ctTitle" data-i="trusted">Trusted contacts</h2>
+  <form id="contactForm" class="row" novalidate>
+   <div class="field"><label for="cname">Name</label><input id="cname" maxlength="30" autocomplete="off"></div>
+   <div class="field"><label for="cphone">Phone number</label><input id="cphone" inputmode="tel" maxlength="16" autocomplete="off" placeholder="10 digits or +country code"></div>
+   <button class="btn" type="submit">Add</button>
+  </form>
+  <div class="error" id="formMsg" role="alert"></div>
+  <ul id="list" class="contacts"></ul>
  </section>
 
  <section class="card">
   <h2 data-i="tips">Safety tips</h2>
   <div class="tips">
-   <div class="tip"><span>📍</span>Share your trip with a trusted contact.</div>
-   <div class="tip"><span>🚕</span>Verify the plate before getting in.</div>
-   <div class="tip"><span>💡</span>Choose well-lit, busy routes.</div>
-   <div class="tip"><span>🔋</span>Keep your phone charged.</div>
+   <div class="tip"><span aria-hidden="true">📍</span>Share your trip with a trusted contact.</div>
+   <div class="tip"><span aria-hidden="true">🚕</span>Verify the plate before getting in.</div>
+   <div class="tip"><span aria-hidden="true">💡</span>Choose well-lit, busy routes.</div>
+   <div class="tip"><span aria-hidden="true">🔋</span>Keep your phone charged.</div>
   </div>
  </section>
 </main>
-<footer data-i="foot">Location is shared only during an alert. Demo prototype: no real alerts are sent.</footer>
+<footer data-i="foot">Location is shared only during an alert. Alerts are sent by SMS or WhatsApp through our server. If it is unavailable, WhatsApp links are used instead.</footer>
 
 <script src="script.js"></script>
 </body>
