@@ -67,8 +67,8 @@ const setMsg=t=>{$('msg').textContent=t};
 function waNumber(p){let d=p.replace(/\D/g,'');if(d.length===10)d='91'+d;return d}
 function waUrl(contact,link,reason){
  const what=reason==='checkin'?'I did not confirm my safe arrival.':'I need help!';
- const text='🚨 SafeCircle: '+what+' My location: '+link;
- return 'https://wa.me/'+waNumber(contact.phone)+'?text='+encodeURIComponent(text);
+    const text='SafeCircle SOS: '+what+' My location: '+link;
+  return 'https://wa.me/'+waNumber(contact.phone)+'?text='+encodeURIComponent(text);
 }
 function showWhatsApp(link,reason){
  const box=$('alerts');box.innerHTML='';

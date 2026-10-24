@@ -45,10 +45,8 @@ function buildMessage(reason, lat, lng, name) {
   const what = reason === 'checkin'
     ? 'I did not confirm my safe arrival.'
     : 'I need help!';
-  return '🚨 SafeCircle ' + who + what + ' My location: ' + where;
-}
-
-app.get('/api/health', (req, res) => {
+  return 'SafeCircle SOS ' + who + what + ' My location: ' + where;
+}  app.get('/api/health', (req, res) => {
   res.json({ ok: true, configured: !!client, channel });
 });
 
