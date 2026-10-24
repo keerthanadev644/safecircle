@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SafeCircle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top">
+ <div class="logo">🛡️ SafeCircle</div>
+ <div class="tools">
+  <select id="lang" aria-label="Language"><option value="en">EN</option><option value="hi">हिंदी</option><option value="te">తెలుగు</option></select>
+  <button id="theme" aria-label="Toggle theme">🌙</button>
+ </div>
+</div>
+
+<section class="hero">
+ <h1 data-i="title">Your trusted circle, one tap away</h1>
+ <p data-i="sub">Alert contacts, share live location, and get help fast.</p>
+ <span class="who" data-i="who">Built for night-time commuters</span>
+</section>
+
+<main>
+ <section class="card sos-wrap">
+  <button id="sos" aria-label="SOS">SOS</button>
+  <div id="msg" data-i="hint">Tap SOS to alert your trusted contacts.</div>
+  <div class="status" id="status"></div>
+  <div class="alerts" id="alerts"></div>
+ </section>
+
+ <section class="actions">
+  <button id="share"><span>📍</span><b data-i="share">Share location</b></button>
+  <button id="fake"><span>📞</span><b data-i="fake">Fake call</b></button>
+  <a href="tel:112"><span>🚨</span><b data-i="call">Call 112</b></a>
+ </section>
+
+ <section class="card">
+  <h2 data-i="trusted">Trusted contacts</h2>
+  <div class="circle" id="circle"></div>
+ </section>
+
+ <section class="card">
+  <h2 data-i="tips">Safety tips</h2>
+  <div class="tips">
+   <div class="tip"><span>📍</span>Share your trip with a trusted contact.</div>
+   <div class="tip"><span>🚕</span>Verify the plate before getting in.</div>
+   <div class="tip"><span>💡</span>Choose well-lit, busy routes.</div>
+   <div class="tip"><span>🔋</span>Keep your phone charged.</div>
+  </div>
+ </section>
+</main>
+<footer data-i="foot">Location is shared only during an alert. Demo prototype: no real alerts are sent.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
