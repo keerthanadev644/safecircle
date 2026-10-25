@@ -6,7 +6,7 @@ A mobile-first women's safety web app built for **recHERsion'26** (ACM-W NITK x 
 | | |
 |---|---|
 | 🔗 **Live demo** | https://safecircle-shebuilds.onrender.com |
-| 🎥 **Demo video** | [add your video link here] |
+| 🎥 **Demo video** | https://github.com/keerthanadev644/safecircle/blob/main/Demovideo.mp4 |
 | 💻 **Code** | https://github.com/keerthanadev644/safecircle |
 | 👩‍💻 **Team** | SheBuilds: B.Keerthana, K.Akshaya |
 
